@@ -377,11 +377,46 @@ function initMobileMenu() {
     if (window.innerWidth <= 768) {
         header.insertBefore(mobileMenuBtn, nav);
         
-        mobileMenuBtn.addEventListener('click', function() {
+        // 触摸事件优化
+        mobileMenuBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        mobileMenuBtn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(1)';
+            toggleMenu();
+        });
+        
+        // 点击事件（桌面端）
+        mobileMenuBtn.addEventListener('click', function(e) {
+            if (e.type === 'click') {
+                toggleMenu();
+            }
+        });
+        
+        function toggleMenu() {
             nav.classList.toggle('active');
             this.innerHTML = nav.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : 
                 '<i class="fas fa-bars">';
+            
+            // 阻止背景滚动
+            if (nav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // 点击导航外部关闭菜单
+        document.addEventListener('click', function(e) {
+            if (!header.contains(e.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
         });
     }
 }
@@ -392,4 +427,92 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 窗口大小改变时重新初始化
     window.addEventListener('resize', debounce(initMobileMenu, 250));
+    
+    // 移动端触摸优化
+    initMobileTouchOptimization();
+    
+    // 移动端性能优化
+    initMobilePerformanceOptimization();
 });
+
+// 移动端触摸优化
+function initMobileTouchOptimization() {
+    // 防止双击缩放
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+    
+    // 触摸反馈优化
+    const touchElements = document.querySelectorAll('.buy-btn, .service-card, .step, .testimonial-card');
+    touchElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+        
+        element.addEventListener('touchcancel', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // 滑动优化
+    let startY = 0;
+    let startX = 0;
+    
+    document.addEventListener('touchstart', function(e) {
+        startY = e.touches[0].clientY;
+        startX = e.touches[0].clientX;
+    });
+    
+    document.addEventListener('touchmove', function(e) {
+        if (!e.target.closest('.modal-content')) {
+            const deltaY = e.touches[0].clientY - startY;
+            const deltaX = e.touches[0].clientX - startX;
+            
+            // 垂直滑动优化
+            if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 10) {
+                e.preventDefault();
+            }
+        }
+    }, { passive: false });
+}
+
+// 移动端性能优化
+function initMobilePerformanceOptimization() {
+    // 图片懒加载（如果有图片的话）
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    // 触摸事件节流
+    let touchTimeout;
+    document.addEventListener('touchstart', function() {
+        clearTimeout(touchTimeout);
+        touchTimeout = setTimeout(() => {
+            // 触摸开始后的处理
+        }, 100);
+    });
+}
