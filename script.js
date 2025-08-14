@@ -50,10 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 初始化应用
 function initializeApp() {
-    // 设置状态栏时间
-    updateTime();
-    setInterval(updateTime, 60000); // 每分钟更新一次
-    
     // 初始化触摸优化
     initTouchOptimization();
     
@@ -202,7 +198,6 @@ function handleVisibilityChange() {
     } else {
         // 应用回到前台
         resumeAnimations();
-        updateTime();
     }
 }
 
@@ -216,16 +211,7 @@ function resumeAnimations() {
     document.body.style.animationPlayState = 'running';
 }
 
-// 更新状态栏时间
-function updateTime() {
-    const timeElement = document.querySelector('.time');
-    if (timeElement) {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        timeElement.textContent = `${hours}:${minutes}`;
-    }
-}
+
 
 // 加载用户数据
 function loadUserData() {
