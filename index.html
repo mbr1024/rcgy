@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>郑州人才公寓抢房服务 - 专业人才公寓申请助手</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-home"></i>
+                <span>郑州人才公寓</span>
+            </div>
+            <nav class="nav">
+                <a href="#home">首页</a>
+                <a href="#services">服务</a>
+                <a href="#about">关于我们</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="login-btn">登录</a>
+                <a href="#" class="register-btn">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main>
+        <!-- 英雄区域 -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>郑州人才公寓抢房服务</h1>
+                    <p>专业团队帮您快速申请郑州人才公寓，享受政府优惠政策</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="number">500+</span>
+                            <span class="label">成功申请</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">95%</span>
+                            <span class="label">申请成功率</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">2h</span>
+                            <span class="label">响应时间</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务类型区域 -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">选择您的人才公寓申请服务</h2>
+                <div class="services-grid">
+                    <!-- 价格优先服务 -->
+                    <div class="service-card featured">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="service-badge">热门推荐</div>
+                        </div>
+                        <h3>快速申请</h3>
+                        <div class="price">
+                            <span class="currency">¥</span>
+                            <span class="amount">99</span>
+                            <span class="period">/次</span>
+                        </div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 优先申请价格最低公寓</li>
+                            <li><i class="fas fa-check"></i> 申请材料快速审核</li>
+                            <li><i class="fas fa-check"></i> 政策解读与指导</li>
+                            <li><i class="fas fa-check"></i> 申请进度实时跟踪</li>
+                            <li><i class="fas fa-check"></i> 7×24小时在线服务</li>
+                        </ul>
+                        <button class="buy-btn" onclick="selectService('price-first')">
+                            <i class="fas fa-shopping-cart"></i>
+                            立即购买
+                        </button>
+                    </div>
+
+                    <!-- 精挑细选服务 -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <h3>精准匹配</h3>
+                        <div class="price">
+                            <span class="currency">¥</span>
+                            <span class="amount">129</span>
+                            <span class="period">/次</span>
+                        </div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 指定区域公寓筛选</li>
+                            <li><i class="fas fa-check"></i> 最优公寓推荐</li>
+                            <li><i class="fas fa-check"></i> 详细公寓分析</li>
+                            <li><i class="fas fa-check"></i> 个性化需求匹配</li>
+                            <li><i class="fas fa-check"></i> 专业顾问一对一服务</li>
+                        </ul>
+                        <button class="buy-btn" onclick="selectService('careful-selection')">
+                            <i class="fas fa-shopping-cart"></i>
+                            立即购买
+                        </button>
+                    </div>
+
+                    <!-- 佛系随缘服务 -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                        <h3>轻松申请</h3>
+                        <div class="price">
+                            <span class="currency">¥</span>
+                            <span class="amount">79</span>
+                            <span class="period">/次</span>
+                        </div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 随机优质公寓推荐</li>
+                            <li><i class="fas fa-check"></i> 政策优惠发现</li>
+                            <li><i class="fas fa-check"></i> 轻松申请体验</li>
+                            <li><i class="fas fa-check"></i> 无压力选择</li>
+                            <li><i class="fas fa-check"></i> 基础申请指导</li>
+                        </ul>
+                        <button class="buy-btn" onclick="selectService('casual-choice')">
+                            <i class="fas fa-shopping-cart"></i>
+                            立即购买
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务流程 -->
+        <section class="process">
+            <div class="container">
+                <h2 class="section-title">服务流程</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3>选择服务</h3>
+                        <p>根据需求选择合适的抢房服务类型</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3>支付费用</h3>
+                        <p>安全支付，支持多种支付方式</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>开始申请</h3>
+                        <p>专业团队开始为您申请合适公寓</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>申请成功</h3>
+                        <p>获得心仪公寓，享受人才公寓优惠政策</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 客户评价 -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">客户评价</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"快速申请服务真的很棒！帮我快速申请到了心仪的人才公寓，强烈推荐！"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>张先生</h4>
+                                <span>郑州高新区</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"精准匹配服务帮我找到了理想区域的人才公寓，非常满意！"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>李女士</h4>
+                                <span>郑州经开区</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"轻松申请服务让我意外发现了好公寓，政策还特别优惠！"</p>
+                        </div>
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>王先生</h4>
+                            <span>郑州航空港区</span>
+                        </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>郑州人才公寓服务</h3>
+                    <p>专业的人才公寓申请团队，为您提供最优质的申请体验</p>
+                </div>
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+                    <p><i class="fas fa-phone"></i> 400-888-8888</p>
+                    <p><i class="fas fa-envelope"></i> service@qiangfang.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+            </div>
+                            <div class="footer-bottom">
+                    <p>&copy; 2024 郑州人才公寓服务. 保留所有权利.</p>
+                </div>
+        </div>
+    </footer>
+
+    <!-- 购买弹窗 -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>确认购买</h2>
+            <div id="modalContent"></div>
+            <div class="modal-actions">
+                <button class="cancel-btn" onclick="closeModal()">取消</button>
+                <button class="confirm-btn" onclick="confirmPurchase()">确认购买</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
