@@ -2,7 +2,6 @@
 
 // 应用状态管理
 const AppState = {
-    currentTab: 'home',
     selectedService: null,
     userInfo: null,
     notifications: [],
@@ -88,7 +87,7 @@ function initTouchOptimization() {
     }, false);
     
     // 触摸反馈
-    const touchElements = document.querySelectorAll('.action-item, .service-card, .nav-item, .primary-btn, .secondary-btn');
+    const touchElements = document.querySelectorAll('.action-item, .service-card, .primary-btn, .secondary-btn');
     touchElements.forEach(element => {
         element.addEventListener('touchstart', function() {
             this.style.transform = 'scale(0.98)';
@@ -382,43 +381,7 @@ function updateApplicationsCount() {
     }
 }
 
-// 切换标签页
-function switchTab(tabName) {
-    // 更新当前标签
-    AppState.currentTab = tabName;
-    
-    // 更新导航状态
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.classList.remove('active');
-    });
-    
-    const currentNavItem = document.querySelector(`.nav-item[onclick*="${tabName}"]`);
-    if (currentNavItem) {
-        currentNavItem.classList.add('active');
-    }
-    
-    // 处理标签页内容
-    handleTabContent(tabName);
-}
 
-// 处理标签页内容
-function handleTabContent(tabName) {
-    switch (tabName) {
-        case 'home':
-            // 首页内容已在HTML中
-            break;
-        case 'services':
-            showAllServices();
-            break;
-        case 'applications':
-            showMyApplications();
-            break;
-        case 'profile':
-            showProfile();
-            break;
-    }
-}
 
 // 显示所有服务
 function showAllServices() {
