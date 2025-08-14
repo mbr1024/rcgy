@@ -39,57 +39,126 @@ body {
 .app-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 16px 20px;
+    padding: 20px;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.15);
     margin-top: 0;
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .app-logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 8px 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.app-logo:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
 }
 
 .app-logo i {
-    font-size: 20px;
+    font-size: 24px;
     color: #ffd700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .logo-text {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     color: white;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .header-info {
-    flex: 1;
-    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .app-title {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 0.5px;
 }
 
 .app-subtitle {
-    font-size: 14px;
-    opacity: 0.9;
+    font-size: 15px;
+    opacity: 0.95;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.slogan {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.slogan-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffd700;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+.slogan-decoration {
+    display: flex;
+    gap: 4px;
+}
+
+.slogan-decoration i {
+    font-size: 12px;
+    color: rgba(255, 215, 0, 0.8);
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.slogan-decoration i:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.slogan-decoration i:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
 
@@ -876,6 +945,52 @@ body {
 }
 
 /* 响应式设计 */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 16px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .header-left {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .app-logo {
+        padding: 10px 14px;
+    }
+    
+    .app-title {
+        font-size: 20px;
+    }
+    
+    .app-subtitle {
+        font-size: 14px;
+    }
+    
+    .header-right {
+        order: -1;
+    }
+    
+    .slogan {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .slogan-text {
+        font-size: 14px;
+    }
+    
+    .slogan-decoration {
+        justify-content: center;
+    }
+}
+
 @media (min-width: 768px) {
     .action-grid {
         grid-template-columns: repeat(4, 1fr);
