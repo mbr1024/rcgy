@@ -7,296 +7,317 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#667eea">
-    <title>郑州人才公寓抢房服务 - 专业人才公寓申请助手</title>
+    <title>郑州人才公寓 - 手机应用</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- 顶部导航栏 -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-home"></i>
-                <span>郑州人才公寓</span>
+    <!-- 顶部状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-content">
+            <span class="time">9:41</span>
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
             </div>
-            <nav class="nav">
-                <a href="#home">首页</a>
-                <a href="#services">服务</a>
-                <a href="#about">关于我们</a>
-                <a href="#contact">联系我们</a>
-            </nav>
-            <div class="user-actions">
-                <a href="#" class="login-btn">登录</a>
-                <a href="#" class="register-btn">注册</a>
+        </div>
+    </div>
+
+    <!-- 主应用头部 -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="header-info">
+                <h1 class="app-title">郑州人才公寓</h1>
+                <p class="app-subtitle">专业申请服务</p>
+            </div>
+            <div class="header-actions">
+                <button class="action-btn" onclick="showNotifications()">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <button class="action-btn" onclick="showSettings()">
+                    <i class="fas fa-cog"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- 主要内容区域 -->
-    <main>
-        <!-- 英雄区域 -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>郑州人才公寓抢房服务</h1>
-                    <p>专业团队帮您快速申请郑州人才公寓，享受政府优惠政策</p>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="number">500+</span>
-                            <span class="label">成功申请</span>
-                        </div>
-                        <div class="stat">
-                            <span class="number">95%</span>
-                            <span class="label">申请成功率</span>
-                        </div>
-                        <div class="stat">
-                            <span class="number">2h</span>
-                            <span class="label">响应时间</span>
-                        </div>
+    <main class="app-main">
+        <!-- 快速操作区域 -->
+        <section class="quick-actions">
+            <div class="action-grid">
+                <div class="action-item" onclick="showServiceInfo('quick')">
+                    <div class="action-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
+                    <span class="action-label">快速申请</span>
+                    <span class="action-price">¥99</span>
+                </div>
+                <div class="action-item" onclick="showServiceInfo('precise')">
+                    <div class="action-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <span class="action-label">精准匹配</span>
+                    <span class="action-price">¥129</span>
+                </div>
+                <div class="action-item" onclick="showServiceInfo('casual')">
+                    <div class="action-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span class="action-label">轻松申请</span>
+                    <span class="action-price">¥79</span>
+                </div>
+                <div class="action-item" onclick="showMyApplications()">
+                    <div class="action-icon">
+                        <i class="fas fa-list-alt"></i>
+                    </div>
+                    <span class="action-label">我的申请</span>
+                    <span class="action-status">进行中</span>
                 </div>
             </div>
         </section>
 
-        <!-- 服务类型区域 -->
-        <section id="services" class="services">
-            <div class="container">
-                <h2 class="section-title">选择您的人才公寓申请服务</h2>
-                <div class="services-grid">
-                    <!-- 价格优先服务 -->
-                    <div class="service-card featured">
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-dollar-sign"></i>
-                            </div>
-                            <div class="service-badge">热门推荐</div>
+        <!-- 服务详情卡片 -->
+        <section class="service-cards">
+            <div class="card-header">
+                <h2>服务详情</h2>
+                <button class="view-all-btn" onclick="showAllServices()">查看全部</button>
+            </div>
+            
+            <!-- 快速申请服务卡片 -->
+            <div class="service-card featured" onclick="selectService('quick')">
+                <div class="card-badge">热门推荐</div>
+                <div class="card-content">
+                    <div class="service-info">
+                        <h3>快速申请服务</h3>
+                        <p class="service-desc">优先申请价格最低公寓，快速审核通过</p>
+                        <div class="service-features">
+                            <span class="feature-tag">快速审核</span>
+                            <span class="feature-tag">价格优先</span>
+                            <span class="feature-tag">24h服务</span>
                         </div>
-                        <h3>快速申请</h3>
-                        <div class="price">
-                            <span class="currency">¥</span>
-                            <span class="amount">99</span>
-                            <span class="period">/次</span>
-                        </div>
-                        <ul class="features">
-                            <li><i class="fas fa-check"></i> 优先申请价格最低公寓</li>
-                            <li><i class="fas fa-check"></i> 申请材料快速审核</li>
-                            <li><i class="fas fa-check"></i> 政策解读与指导</li>
-                            <li><i class="fas fa-check"></i> 申请进度实时跟踪</li>
-                            <li><i class="fas fa-check"></i> 7×24小时在线服务</li>
-                        </ul>
-                        <button class="buy-btn" onclick="selectService('price-first')">
-                            <i class="fas fa-shopping-cart"></i>
-                            立即购买
-                        </button>
                     </div>
+                    <div class="service-price">
+                        <span class="price-amount">¥99</span>
+                        <span class="price-unit">/次</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="primary-btn" onclick="selectService('quick')">
+                        <i class="fas fa-play"></i>
+                        立即申请
+                    </button>
+                    <button class="secondary-btn" onclick="showServiceDetails('quick')">
+                        <i class="fas fa-info-circle"></i>
+                        了解详情
+                    </button>
+                </div>
+            </div>
 
-                    <!-- 精挑细选服务 -->
-                    <div class="service-card">
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
+            <!-- 精准匹配服务卡片 -->
+            <div class="service-card" onclick="selectService('precise')">
+                <div class="card-content">
+                    <div class="service-info">
+                        <h3>精准匹配服务</h3>
+                        <p class="service-desc">指定区域筛选，最优公寓推荐</p>
+                        <div class="service-features">
+                            <span class="feature-tag">区域筛选</span>
+                            <span class="feature-tag">专业顾问</span>
+                            <span class="feature-tag">一对一服务</span>
                         </div>
-                        <h3>精准匹配</h3>
-                        <div class="price">
-                            <span class="currency">¥</span>
-                            <span class="amount">129</span>
-                            <span class="period">/次</span>
-                        </div>
-                        <ul class="features">
-                            <li><i class="fas fa-check"></i> 指定区域公寓筛选</li>
-                            <li><i class="fas fa-check"></i> 最优公寓推荐</li>
-                            <li><i class="fas fa-check"></i> 详细公寓分析</li>
-                            <li><i class="fas fa-check"></i> 个性化需求匹配</li>
-                            <li><i class="fas fa-check"></i> 专业顾问一对一服务</li>
-                        </ul>
-                        <button class="buy-btn" onclick="selectService('careful-selection')">
-                            <i class="fas fa-shopping-cart"></i>
-                            立即购买
-                        </button>
                     </div>
+                    <div class="service-price">
+                        <span class="price-amount">¥129</span>
+                        <span class="price-unit">/次</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="primary-btn" onclick="selectService('precise')">
+                        <i class="fas fa-play"></i>
+                        立即申请
+                    </button>
+                    <button class="secondary-btn" onclick="showServiceDetails('precise')">
+                        <i class="fas fa-info-circle"></i>
+                        了解详情
+                    </button>
+                </div>
+            </div>
 
-                    <!-- 佛系随缘服务 -->
-                    <div class="service-card">
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
+            <!-- 轻松申请服务卡片 -->
+            <div class="service-card" onclick="selectService('casual')">
+                <div class="card-content">
+                    <div class="service-info">
+                        <h3>轻松申请服务</h3>
+                        <p class="service-desc">随机优质公寓，惊喜政策发现</p>
+                        <div class="service-features">
+                            <span class="feature-tag">随机推荐</span>
+                            <span class="feature-tag">政策优惠</span>
+                            <span class="feature-tag">无压力</span>
                         </div>
-                        <h3>轻松申请</h3>
-                        <div class="price">
-                            <span class="currency">¥</span>
-                            <span class="amount">79</span>
-                            <span class="period">/次</span>
-                        </div>
-                        <ul class="features">
-                            <li><i class="fas fa-check"></i> 随机优质公寓推荐</li>
-                            <li><i class="fas fa-check"></i> 政策优惠发现</li>
-                            <li><i class="fas fa-check"></i> 轻松申请体验</li>
-                            <li><i class="fas fa-check"></i> 无压力选择</li>
-                            <li><i class="fas fa-check"></i> 基础申请指导</li>
-                        </ul>
-                        <button class="buy-btn" onclick="selectService('casual-choice')">
-                            <i class="fas fa-shopping-cart"></i>
-                            立即购买
-                        </button>
                     </div>
+                    <div class="service-price">
+                        <span class="price-amount">¥79</span>
+                        <span class="price-unit">/次</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="primary-btn" onclick="selectService('casual')">
+                        <i class="fas fa-play"></i>
+                        立即申请
+                    </button>
+                    <button class="secondary-btn" onclick="showServiceDetails('casual')">
+                        <i class="fas fa-info-circle"></i>
+                        了解详情
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- 服务流程 -->
-        <section class="process">
-            <div class="container">
-                <h2 class="section-title">服务流程</h2>
-                <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-icon">
-                            <i class="fas fa-clipboard-list"></i>
-                        </div>
-                        <h3>选择服务</h3>
-                        <p>根据需求选择合适的抢房服务类型</p>
+        <!-- 申请流程 -->
+        <section class="application-process">
+            <h2>申请流程</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>选择服务</h4>
+                        <p>根据需求选择合适的申请服务</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-icon">
-                            <i class="fas fa-credit-card"></i>
-                        </div>
-                        <h3>支付费用</h3>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>支付费用</h4>
                         <p>安全支付，支持多种支付方式</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>开始申请</h3>
-                        <p>专业团队开始为您申请合适公寓</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>开始申请</h4>
+                        <p>专业团队开始为您申请公寓</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div class="step-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3>申请成功</h3>
-                        <p>获得心仪公寓，享受人才公寓优惠政策</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>申请成功</h4>
+                        <p>获得心仪公寓，享受优惠政策</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 客户评价 -->
-        <section class="testimonials">
-            <div class="container">
-                <h2 class="section-title">客户评价</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"快速申请服务真的很棒！帮我快速申请到了心仪的人才公寓，强烈推荐！"</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
+        <!-- 用户评价 -->
+        <section class="user-reviews">
+            <div class="section-header">
+                <h2>用户评价</h2>
+                <button class="view-all-btn" onclick="showAllReviews()">查看全部</button>
+            </div>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="avatar">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <div class="author-info">
+                            <div class="reviewer-details">
                                 <h4>张先生</h4>
-                                <span>郑州高新区</span>
+                                <span class="location">郑州高新区</span>
                             </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"精准匹配服务帮我找到了理想区域的人才公寓，非常满意！"</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
+                    <p class="review-text">"快速申请服务真的很棒！帮我快速申请到了心仪的人才公寓，强烈推荐！"</p>
+                    <div class="review-footer">
+                        <span class="service-used">快速申请</span>
+                        <span class="review-date">2天前</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="avatar">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <div class="author-info">
+                            <div class="reviewer-details">
                                 <h4>李女士</h4>
-                                <span>郑州经开区</span>
+                                <span class="location">郑州经开区</span>
                             </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"轻松申请服务让我意外发现了好公寓，政策还特别优惠！"</p>
-                        </div>
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>王先生</h4>
-                            <span>郑州航空港区</span>
-                        </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+                    <p class="review-text">"精准匹配服务帮我找到了理想区域的人才公寓，非常满意！"</p>
+                    <div class="review-footer">
+                        <span class="service-used">精准匹配</span>
+                        <span class="review-date">1周前</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 底部 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>郑州人才公寓服务</h3>
-                    <p>专业的人才公寓申请团队，为您提供最优质的申请体验</p>
-                </div>
-                <div class="footer-section">
-                    <h3>联系方式</h3>
-                    <p><i class="fas fa-phone"></i> 400-888-8888</p>
-                    <p><i class="fas fa-envelope"></i> service@qiangfang.com</p>
-                </div>
-                <div class="footer-section">
-                    <h3>关注我们</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-weixin"></i></a>
-                        <a href="#"><i class="fab fa-weibo"></i></a>
-                        <a href="#"><i class="fab fa-qq"></i></a>
-                    </div>
-                </div>
-            </div>
-                            <div class="footer-bottom">
-                    <p>&copy; 2024 郑州人才公寓服务. 保留所有权利.</p>
-                </div>
+    <!-- 底部导航栏 -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('home')">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
         </div>
-    </footer>
+        <div class="nav-item" onclick="switchTab('services')">
+            <i class="fas fa-list"></i>
+            <span>服务</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('applications')">
+            <i class="fas fa-file-alt"></i>
+            <span>申请</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('profile')">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </div>
+    </nav>
 
-    <!-- 购买弹窗 -->
-    <div id="purchaseModal" class="modal">
+    <!-- 服务选择弹窗 -->
+    <div id="serviceModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>确认购买</h2>
-            <div id="modalContent"></div>
-            <div class="modal-actions">
-                <button class="cancel-btn" onclick="closeModal()">取消</button>
-                <button class="confirm-btn" onclick="confirmPurchase()">确认购买</button>
+            <div class="modal-header">
+                <h3 id="modalTitle">选择服务</h3>
+                <button class="close-btn" onclick="closeServiceModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- 动态内容 -->
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" onclick="closeServiceModal()">取消</button>
+                <button class="confirm-btn" onclick="confirmServiceSelection()">确认选择</button>
             </div>
         </div>
+    </div>
+
+    <!-- 成功提示 -->
+    <div id="successToast" class="toast success">
+        <i class="fas fa-check-circle"></i>
+        <span id="successMessage">操作成功！</span>
     </div>
 
     <script src="script.js"></script>
