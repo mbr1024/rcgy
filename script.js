@@ -443,17 +443,7 @@ function showProfile() {
     // 这里可以显示个人资料
 }
 
-// 显示通知
-function showNotifications() {
-    showToast('通知中心', 'info');
-    // 这里可以显示通知列表
-}
 
-// 显示设置
-function showSettings() {
-    showToast('设置页面', 'info');
-    // 这里可以显示设置页面
-}
 
 // 显示上下文菜单
 function showContextMenu(element) {
